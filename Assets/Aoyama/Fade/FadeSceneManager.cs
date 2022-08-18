@@ -22,13 +22,19 @@ public class FadeSceneManager : SingletonMonoBehaviour<FadeSceneManager>
         }
     }
 
-    public void SceneChange(string sceneName)
+    /// <summary>
+    /// Fade‚µ‚È‚ª‚çSceneChange‚Å‚«‚éŠÖ”
+    /// </summary>
+    /// <param name="sceneName">ˆÚ“®‚·‚éƒV[ƒ“</param>
+    /// <param name="isStartFade">ˆÚ“®‚µ‚½æ‚ÅFadeOut‚·‚é‚©‚Ç‚¤‚©</param>
+    public void SceneChange(string sceneName, bool isStartFade = false)
     {
-        StartCoroutine(SceneChangeCor(sceneName));
+        StartCoroutine(SceneChangeCor(sceneName, isStartFade));
     }
 
-    IEnumerator SceneChangeCor(string sceneName)
+    IEnumerator SceneChangeCor(string sceneName, bool isStartFade = false)
     {
+        _isStartFade = isStartFade;
         _fadeAnimator!.Play("FadeIn");
         yield return new WaitForSeconds(_fadeTime);
         SceneManager.LoadScene(sceneName);
