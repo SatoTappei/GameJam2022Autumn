@@ -5,11 +5,11 @@ using UnityEngine;
 public class VillagerHit : MonoBehaviour, IHittable
 {
     [SerializeField]
-    private int _score = 500;
+    private int _score = 250;
     [SerializeField]
-    private string _player1 = "Player1";
+    private string _slimeTag = "Slime";
     [SerializeField]
-    private string _player2 = "Player2";
+    private string _HeroTag = "Hero";
 
     private GameManager _gameManager;
 
@@ -25,14 +25,9 @@ public class VillagerHit : MonoBehaviour, IHittable
     public void Hit(GameObject hitObject)
     {
         //当たってきたプレイヤーの判定はTag行う
-        if(hitObject.tag == _player1)
+        if(hitObject.tag == _slimeTag)
         {
             Debug.Log("player1に当たった");
-        }
-        else if(hitObject.tag == _player2)
-        {
-            Debug.Log("player2に当たった");
-
             Destroy(hitObject);
             _gameManager.AntiHeroScore(_score);
         }
