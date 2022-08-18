@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
+
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     int heroscore = 0;
     int antiheroscore = 0;
     [SerializeField]
-    int minute = 2;
+    int minute = 1;
     float seconds = 0f;
     [SerializeField]
     TextMeshProUGUI timer = null;
@@ -23,42 +25,72 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     GameObject victorycanvas = null;
     [SerializeField]
     GameObject scorecanvas = null;
+    [SerializeField]
+    Text counttext = null;
+    FadeSceneManager fade = null;
     bool judge = false;
+    bool start = true;
+    public event Action OnGameStart;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //nullチェック
+        if (!timer || !heroscoretext || !antiheroscoretext || !victorytext || !victorycanvas || !scorecanvas)
+        {
+            start = false;
+        }
+        else
+        {
+            start = true;
+        }
+    　　//タイトルだったら
+        if (SceneManager.GetActiveScene().name == "Title")
+        {
+            victorycanvas.SetActive(false);
+            scorecanvas.SetActive(false);
+        }
+        //シングルトンなので値を初期化。（前回のプレイデータを保持している可能性があるから）
+        heroscore = 0;
+        antiheroscore = 0;
+        minute = 1;
+        seconds = 0;
+        judge = false;
+        fade = FadeSceneManager.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        seconds -= Time.deltaTime;
-        if (seconds <= 0f)
+        if (start)
         {
-            if (minute == 0)
+            seconds -= Time.deltaTime;
+            if (seconds <= 0f)
             {
-                judge = true;
-                Judge();
+                if (minute == 0)
+                {
+                    judge = true;
+                    start = false;
+                    Judge();
+                }
+                else
+                {
+                    minute--;
+                    seconds = seconds + 60;
+                }
             }
-            else
+            if (heroscore >= 99999)
             {
-                minute--;
-                seconds = seconds + 60;
+                heroscore = 99999;
             }
+            if (antiheroscore >= 99999)
+            {
+                antiheroscore = 99999;
+            }
+            timer.text = minute.ToString("00") + ":" + Mathf.Floor(seconds).ToString("00");
+            heroscoretext.text = heroscore.ToString("00000");
+            antiheroscoretext.text = antiheroscore.ToString("00000");
         }
-        if (heroscore >= 99999)
-        {
-            heroscore = 99999;
-        }
-        if (antiheroscore >= 99999)
-        {
-            antiheroscore = 99999;
-        }
-        timer.text = minute.ToString("00") + ":" + Mathf.Floor(seconds).ToString("00");
-        heroscoretext.text = heroscore.ToString("00000");
-        antiheroscoretext.text = antiheroscore.ToString("00000");
-        }
+    }
     public void HeroScore(int score)
     {
         heroscore += score;
@@ -69,8 +101,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
     public void Judge()
     {
-        if (judge)
-        {
             if (heroscore > antiheroscore)
             {
                 victorytext.text = "勇者の勝利";
@@ -85,17 +115,28 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             }
             victorycanvas.SetActive(true);
             scorecanvas.SetActive(false);
-        }
     }
     public void Sceneloader()
     {
-        if(judge)
+        if (judge)
         {
-            SceneManager.LoadScene("Title");
+            fade.SceneChange("Title");
         }
         else
         {
-            SceneManager.LoadScene("ステージsceneの名前");
+            fade.SceneChange("Narita");
+        }
+    }
+    public void Count()
+    {
+        for(int i = 3; 0 <= i; i--)
+        {
+            counttext.text = i.ToString();
+            if(i == 0)
+            {
+                counttext.text = "START";
+                OnGameStart();
+            }
         }
     }
 }
