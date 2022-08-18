@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8676535974661591528}
   - component: {fileID: 8676535974661591539}
   - component: {fileID: 8676535974661591532}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,4 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045f1ae018733e47a0e659d46d15804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trans: {fileID: 0}
+  _speed: 3
+  _distance: 5
+  _slimeTag: Slime
+  _heroTag: Hero
