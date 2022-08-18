@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FadeSceneManager : MonoBehaviour
+public class FadeSceneManager : SingletonMonoBehaviour<FadeSceneManager>
 {
     [SerializeField]
-    private bool _isStartFade = false;
+    private bool _isStartFade = true;
     [SerializeField]
-    private float _fadeTime = 1f;
-    [SerializeField]
-    private string _sceneName = "Title";
+    private float _fadeTime = 1.5f;
     [Header("é©å»éQè∆")]
     [SerializeField]
     Animator _fadeAnimator;
     
 
-    private void Awake()
+    private void Start()
     {
         if(_isStartFade )
         {
@@ -24,15 +22,15 @@ public class FadeSceneManager : MonoBehaviour
         }
     }
 
-    public void SceneChange()
+    public void SceneChange(string sceneName)
     {
-        StartCoroutine(SceneChangeCor());
+        StartCoroutine(SceneChangeCor(sceneName));
     }
 
-    IEnumerator SceneChangeCor()
+    IEnumerator SceneChangeCor(string sceneName)
     {
         _fadeAnimator!.Play("FadeIn");
         yield return new WaitForSeconds(_fadeTime);
-        SceneManager.LoadScene(_sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }
