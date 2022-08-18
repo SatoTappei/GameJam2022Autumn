@@ -8,11 +8,12 @@ using System;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    int minute = 0;
+    float seconds = 3f;
     int heroscore = 0;
     int antiheroscore = 0;
-    [SerializeField]
-    int minute = 1;
-    float seconds = 0f;
+    private int lastheroscore = 0;
+    private int lastantiheroscore = 0;
     [SerializeField]
     TextMeshProUGUI timer = null;
     [SerializeField]
@@ -20,51 +21,55 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     TextMeshProUGUI antiheroscoretext = null;
     [SerializeField]
-    Text victorytext = null;
+    Text counttext = null;
+    [SerializeField]
+    Text slimescoretext = null;
+    [SerializeField]
+    Text bravescoretext = null;
+    [SerializeField]
+    Text SwinorLose = null;
+    [SerializeField]
+    Text BwinorLose = null;
     [SerializeField]
     GameObject victorycanvas = null;
     [SerializeField]
     GameObject scorecanvas = null;
     [SerializeField]
-    Text counttext = null;
+    GameObject countcanvas = null;
+    float count = 3.5f;
     FadeSceneManager fade = null;
     bool judge = false;
-    bool start = true;
+    bool start = false;
+
     public event Action OnGameStart;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //シングルトンなので値を初期化。（前回のプレイデータを保持している可能性があるから）
-        heroscore = 0;
-        antiheroscore = 0;
-        minute = 1;
-        seconds = 0;
-        judge = false;
         fade = FadeSceneManager.Instance;
         //nullチェック
-        if (!timer || !heroscoretext || !antiheroscoretext || !victorytext || !victorycanvas || !scorecanvas || !counttext)
+        if (!timer || !heroscoretext || !antiheroscoretext || !slimescoretext || !victorycanvas || !scorecanvas || !countcanvas || !counttext)
         {
             start = false;
         }
-        else
-        {
-            start = true;
-        }
-    　　//タイトルだったら
-        if (SceneManager.GetActiveScene().name == "Title")
-        {
-            victorycanvas.SetActive(false);
-            scorecanvas.SetActive(false);
-        }
-        else
-        {
-            Count();
-        }
+        heroscore = 0;
+        antiheroscore = 0;
+        minute = 0;
+        seconds = 2;
+        count = 3.5f;
+        judge = false;
+        start = false;
+        victorycanvas.SetActive(false);
+        scorecanvas.SetActive(false);
+        countcanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer.text = minute.ToString("00") + ":" + Mathf.Floor(seconds).ToString("00");
+        heroscoretext.text = heroscore.ToString("00000");
+        antiheroscoretext.text = antiheroscore.ToString("00000");
         if (start)
         {
             seconds -= Time.deltaTime;
@@ -72,8 +77,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             {
                 if (minute == 0)
                 {
+                    lastheroscore = heroscore;
+                    lastantiheroscore = antiheroscore;
                     judge = true;
-                    start = false;
+                    //start = false;
+                    scorecanvas.SetActive(false);
                     Judge();
                 }
                 else
@@ -90,9 +98,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             {
                 antiheroscore = 99999;
             }
-            timer.text = minute.ToString("00") + ":" + Mathf.Floor(seconds).ToString("00");
-            heroscoretext.text = heroscore.ToString("00000");
-            antiheroscoretext.text = antiheroscore.ToString("00000");
+        }
+        else if (SceneManager.GetActiveScene().name == "Narita")//ゲームのscene名に変更して
+        {
+            countcanvas.SetActive(true);
+            victorycanvas.SetActive(false);
+            scorecanvas.SetActive(false);
+            Count();
         }
     }
     public void HeroScore(int score)
@@ -105,41 +117,47 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
     public void Judge()
     {
-            if (heroscore > antiheroscore)
-            {
-                victorytext.text = "勇者の勝利";
-            }
-            else if (heroscore < antiheroscore)
-            {
-                victorytext.text = "スライムの勝利";
-            }
-            else
-            {
-                victorytext.text = "引き分け";
-            }
-            victorycanvas.SetActive(true);
-            scorecanvas.SetActive(false);
-    }
-    public void Sceneloader()
-    {
-        if (judge)
+        slimescoretext.text = lastantiheroscore.ToString();
+        bravescoretext.text = lastheroscore.ToString();
+        if (heroscore > antiheroscore)
         {
-            fade.SceneChange("Title");
+            BwinorLose.text = "WIN";
+            SwinorLose.text = "LOSE";
+        }
+        else if (heroscore < antiheroscore)
+        {
+            BwinorLose.text = "LOSE";
+            SwinorLose.text = "WIN";
         }
         else
         {
-            fade.SceneChange("Narita");
+            BwinorLose.text = "DRAW";
+            SwinorLose.text = "DRAW";
         }
+        victorycanvas.SetActive(true);
+    }
+    public void TitleSceneloader()
+    {
+       SceneManager.LoadScene("Title");
+     }
+    public void GameSceneloader()
+    {
+        SceneManager.LoadScene("Narita");//後々変更
     }
     public void Count()
     {
-        for(int i = 3; 0 <= i; i--)
+        count -= Time.deltaTime;
+        counttext.text = count.ToString("0");
+        if (count < 0.5)
         {
-            counttext.text = i.ToString();
-            if(i == 0)
+            counttext.text = "START";
+            if (count < -0.5)
             {
-                counttext.text = "START";
-                OnGameStart();
+                //OnGameStart();
+                start = true;
+                counttext.enabled = false;
+                scorecanvas.SetActive(true);
+                countcanvas.SetActive(false);
             }
         }
     }

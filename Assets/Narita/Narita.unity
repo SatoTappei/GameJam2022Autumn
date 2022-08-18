@@ -268,12 +268,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3954975880647790150, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+      propertyPath: counttext
+      value: 
+      objectReference: {fileID: 1277677239}
     - target: {fileID: 7710383175215311802, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8056255239556138075, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 251164503}
+    - target: {fileID: 8056255239556138075, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameSceneloader
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+--- !u!114 &251164503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3954975880647790150, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+  m_PrefabInstance: {fileID: 251164500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573ac3b8239142145bf7b9d982ed9cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1091954391
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,3 +381,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277677239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1385482187076311103, guid: 4b54882b0c070f94a9b2306838cac72c, type: 3}
+  m_PrefabInstance: {fileID: 251164500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -27,9 +27,9 @@ public class FadeSceneManager : SingletonMonoBehaviour<FadeSceneManager>
     /// </summary>
     /// <param name="sceneName">ˆÚ“®‚·‚éƒV[ƒ“</param>
     /// <param name="isStartFade">ˆÚ“®‚µ‚½æ‚ÅFadeOut‚·‚é‚©‚Ç‚¤‚©</param>
-    public void SceneChange(string sceneName, bool isStartFade = false)
+    public void SceneChange(string sceneName)
     {
-        StartCoroutine(SceneChangeCor(sceneName, isStartFade));
+        StartCoroutine(SceneChangeCor(sceneName));
     }
 
     IEnumerator SceneChangeCor(string sceneName, bool isStartFade = false)
