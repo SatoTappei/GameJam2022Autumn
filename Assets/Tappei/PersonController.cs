@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /// <summary>
-/// 敵の移動を制御する
-/// プレイヤーが一定距離まで近づいたらプレイヤーのほうに寄ってきて
-/// プレイヤーと離れていたらうろうろさせる
+/// 村人の移動を制御する
+/// ランダムに移動して、プレイヤーが近づいてきたら一番遠い角に向かって移動する
 /// </summary>
-public class EnemyController : MonoBehaviour
+public class PersonController : MonoBehaviour
 {
     NavMeshAgent _agent;
     /// <summary>移動速度</summary>
@@ -19,14 +18,18 @@ public class EnemyController : MonoBehaviour
     [Header("スライムのタグ"), SerializeField] string _slimeTag;
     /// <summary>勇者のタグ</summary>
     [Header("勇者のタグ"), SerializeField] string _heroTag;
+    /// <summary>逃走地点のタグ</summary>
+    [Header("逃走地点のタグ"), SerializeField] string _escapePointTag;
     /// <summary>プレイヤーを見失った際に別の地点へうろうろするまでの時間</summary>
     [Header("うろうろする際の止まっている時間"), SerializeField] float _randomWait;
-    /// <summary>タイトル画面で使用するものか</summary>
-    [Header("タイトル画面で使用するかものか"), SerializeField] bool _isTitle;
+    /// <summary>逃走する際のスピードの倍率</summary>
+    [Header("逃走する際のスピードの倍率"), SerializeField] float _escapeSpeedMag;
     /// <summary>スライムとの距離を計算するのに必要なTransform</summary>
     Transform _slimeTrans;
     /// <summary>勇者との距離を計算するのに必要なTransform</summary>
     Transform _heroTrans;
+    /// <summary>逃走中かどうか</summary>
+    bool _isEscape;
 
     void Awake()
     {
@@ -39,47 +42,47 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         // スポーン時にランダムな地点へ移動させる
-        SetMovePointRandom();
+        MoveRandomPoint();
     }
 
     void Update()
     {
-        if(!_isTitle)
-        {
-            float slimeDist = (transform.position - _slimeTrans.position).magnitude;
-            float heroDist = (transform.position - _heroTrans.position).magnitude;
+        float slimeDist = (transform.position - _slimeTrans.position).magnitude;
+        float heroDist = (transform.position - _heroTrans.position).magnitude;
 
-            // スライム、もしくは勇者との距離が指定された距離以下だったら追跡する
-            if (slimeDist < _distance || heroDist < _distance)
+        // スライム、もしくは勇者との距離が指定された距離以下だったら
+        if (slimeDist < _distance || heroDist < _distance)
+        {
+            // 逃走中でなかったら
+            if (!_isEscape)
             {
-                _agent.destination = slimeDist < heroDist ? _slimeTrans.position : _heroTrans.position;
-            }
-            else
-            {
-                MoveRandom();
+                // 逃走フラグを立てる
+                _isEscape = true;
+                // 逃走時は速度を上げる
+                _agent.speed *= 2;
+
+                // 近いほうの前向きを取得する
+                Transform target = slimeDist < heroDist ? _slimeTrans : _heroTrans;
+                // 近いほうの前向きからレイを飛ばす
+                
+                // ステージの端にぶち当たる
+                // その位置に移動する
             }
         }
         else
         {
-            MoveRandom();
-        }
-        
-    }
-
-    /// <summary>ランダムな箇所に移動させる</summary>
-    void MoveRandom()
-    {
-        // 目標地点の目前まで来たら
-        if (!_agent.pathPending && _agent.remainingDistance < 0.1f && !_agent.isStopped)
-        {
-            // その地点で止めて、指定した秒後に次の地点へ移動させる
-            _agent.isStopped = true;
-            Invoke("SetMovePointRandom", _randomWait);
+            // 目標地点の目前まで来たら
+            if (!_agent.pathPending && _agent.remainingDistance < 0.1f && !_agent.isStopped)
+            {
+                // その地点で止めて、指定した秒後に次の地点へ移動させる
+                _agent.isStopped = true;
+                Invoke("MoveRandomPoint", _randomWait);
+            }
         }
     }
 
     /// <summary>ランダムな位置に移動させる</summary>
-    void SetMovePointRandom()
+    void MoveRandomPoint()
     {
         _agent.isStopped = false;
 
