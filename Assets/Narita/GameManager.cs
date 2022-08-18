@@ -34,8 +34,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+        //シングルトンなので値を初期化。（前回のプレイデータを保持している可能性があるから）
+        heroscore = 0;
+        antiheroscore = 0;
+        minute = 1;
+        seconds = 0;
+        judge = false;
+        fade = FadeSceneManager.Instance;
         //nullチェック
-        if (!timer || !heroscoretext || !antiheroscoretext || !victorytext || !victorycanvas || !scorecanvas)
+        if (!timer || !heroscoretext || !antiheroscoretext || !victorytext || !victorycanvas || !scorecanvas || !counttext)
         {
             start = false;
         }
@@ -49,13 +56,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             victorycanvas.SetActive(false);
             scorecanvas.SetActive(false);
         }
-        //シングルトンなので値を初期化。（前回のプレイデータを保持している可能性があるから）
-        heroscore = 0;
-        antiheroscore = 0;
-        minute = 1;
-        seconds = 0;
-        judge = false;
-        fade = FadeSceneManager.Instance;
+        else
+        {
+            Count();
+        }
     }
 
     // Update is called once per frame
