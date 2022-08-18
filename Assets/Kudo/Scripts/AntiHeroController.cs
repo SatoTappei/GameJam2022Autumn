@@ -12,10 +12,13 @@ public class AntiHeroController : MonoBehaviour
     [Header("ƒXƒ‰ƒCƒ€‚Ì•à‚­‘¬“x"),SerializeField] float _walkSpeed;
     /// <summary>—EŽÒ‚©‚Ç‚¤‚©‚Ì”»’è</summary>
     [Header("—EŽÒ‚©‚Ç‚¤‚©"), Tooltip("—EŽÒ‚¾‚Á‚½‚ç–îˆóƒL[‚Å‚Ì‘€ì@‚¶‚á‚È‚Á‚©‚Á‚½‚çWSAD‚Å‚Ì‘€ì")]
-    [SerializeField] bool _isHero;
+    [SerializeField] bool isHero;
+    [SerializeField] GameObject _slimeSpown;
+   
 
+    //public bool IsAttack => isAttack;
     public float walkSpeed => _walkSpeed;
-    public bool isHero => _isHero;
+    public bool IsHero => isHero;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +29,10 @@ public class AntiHeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxisRaw(isHero ? "Horizontal1P" : "Horizontal2P");
-        float z = Input.GetAxisRaw(isHero ? "Vertical1P" : "Vertical2P");
+       
+        float x = Input.GetAxisRaw(IsHero ? "Horizontal1P" : "Horizontal2P");
+        float z = Input.GetAxisRaw(IsHero ? "Vertical1P" : "Vertical2P");
 
-        
         _rb.velocity = new Vector3(x * _walkSpeed, 0, z * _walkSpeed);
         Vector3 vel = _rb.velocity;
         if (vel != Vector3.zero)
@@ -37,12 +40,9 @@ public class AntiHeroController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
 
-        _anim.SetFloat("moveSpeed", _rb.velocity.magnitude);
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift)) //•ª—ô
         {
-            Debug.Log("SlimeAttack");
-            _anim.SetTrigger("");
+            Instantiate(_slimeSpown,transform.position,Quaternion.identity);
         }
     }
 }
