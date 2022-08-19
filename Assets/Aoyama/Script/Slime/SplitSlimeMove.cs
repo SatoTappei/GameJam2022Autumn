@@ -29,7 +29,10 @@ public class SplitSlimeMove : MonoBehaviour, IHittable
 
     private void Move()
     {
-        _rb.velocity = _enemyManager.SearchNearEnemyDirection(transform) * _speed;
+        Vector3 dir = _enemyManager.SearchNearEnemyDirection(transform) * _speed;
+        dir = new Vector3(dir.x, 0, dir.z);
+        _rb.velocity = dir;
+        
 
         Vector3 vel = _rb.velocity;
         if (vel != Vector3.zero)

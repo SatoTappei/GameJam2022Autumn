@@ -25,6 +25,7 @@ public class EnemyManager : SingletonMonoBehaviour<EnemyManager>
 
         for(int i = 0; i < _enemys.Length; i++)
         {
+            if (_enemys[i] == null) return Vector3.zero;
             float dis = Vector3.Distance(_enemys[i].transform.position, tr.position);
 
             if(befo > dis)
