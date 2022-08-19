@@ -6,6 +6,7 @@ public class HeroController : MonoBehaviour
 {
     /// <summary>勇者のアニメーター</summary>
     private Animator _anim;
+    private Animator _animIdleWalk;
     /// <summary>勇者の重力</summary>
     private Rigidbody _rb;
     /// <summary>勇者の歩くスピード</summary>
@@ -21,6 +22,7 @@ public class HeroController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GameObject.Find("Attack").GetComponent<Animator>();
+        _animIdleWalk = GameObject.Find("head").GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,6 +47,8 @@ public class HeroController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
+
+        _animIdleWalk.SetFloat("walk",_rb.velocity.magnitude);
 
     }
 }

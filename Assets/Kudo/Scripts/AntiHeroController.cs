@@ -41,6 +41,8 @@ public class AntiHeroController : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(_rb.velocity);
         }
 
+        _anim.SetFloat("moveSpeed", _rb.velocity.magnitude);
+
         if(Input.GetKeyDown(KeyCode.LeftShift)) //•ª—ô
         {
             Instantiate(_slimeSpown,transform.position,Quaternion.identity);
