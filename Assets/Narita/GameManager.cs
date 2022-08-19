@@ -27,9 +27,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     Text bravescoretext = null;
     [SerializeField]
-    Text SwinorLose = null;
+    RawImage slimeWinOrLose = null;
     [SerializeField]
-    Text BwinorLose = null;
+    RawImage braveWinOrLose = null;
+    [SerializeField]
+    Texture win = null;
+    [SerializeField]
+    Texture lose = null;
     [SerializeField]
     GameObject victorycanvas = null;
     [SerializeField]
@@ -48,7 +52,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //シングルトンなので値を初期化。（前回のプレイデータを保持している可能性があるから）
         fade = FadeSceneManager.Instance;
         //nullチェック
-        if (!timer || !heroscoretext || !antiheroscoretext || !slimescoretext || !victorycanvas || !scorecanvas || !countcanvas || !counttext)
+        if (!timer || !heroscoretext || !antiheroscoretext || !slimescoretext 
+            || !victorycanvas || !scorecanvas || !countcanvas || !counttext 
+            || !slimeWinOrLose || !braveWinOrLose || !win || !lose)
         {
             start = false;
         }
@@ -99,7 +105,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 antiheroscore = 99999;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Narita")//ゲームのscene名に変更して
+        else if (SceneManager.GetActiveScene().name == "Narita")
         {
             countcanvas.SetActive(true);
             victorycanvas.SetActive(false);
@@ -121,24 +127,26 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         bravescoretext.text = lastheroscore.ToString();
         if (heroscore > antiheroscore)
         {
-            BwinorLose.text = "WIN";
-            SwinorLose.text = "LOSE";
+            slimeWinOrLose.texture = win;
+            braveWinOrLose.texture = lose;
         }
         else if (heroscore < antiheroscore)
         {
-            BwinorLose.text = "LOSE";
-            SwinorLose.text = "WIN";
+            slimeWinOrLose.texture = lose;
+            braveWinOrLose.texture = win;
         }
         else
         {
-            BwinorLose.text = "DRAW";
-            SwinorLose.text = "DRAW";
+            //slimeWinOrLose.texture = draw;
+            //braveWinOrLose.texture = draw;
+            slimeWinOrLose.texture = win;
+            braveWinOrLose.texture = lose;
         }
         victorycanvas.SetActive(true);
     }
-    public void Sceneloader(string name)
+    public void Sceneloader(string Scenename)
     {
-       fade.SceneChange(name);
+       fade.SceneChange(Scenename);
      }
     public void Count()
     {
