@@ -28,7 +28,7 @@ public class HeroController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))　//剣攻撃のアニメーション
+        if (Input.GetKeyDown(KeyCode.Return))　//剣攻撃のアニメーション
         {
             Debug.Log("HeroAttack");
             _anim.SetTrigger("attack");
