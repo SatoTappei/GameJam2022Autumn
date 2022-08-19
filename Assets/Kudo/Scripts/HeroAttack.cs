@@ -20,13 +20,9 @@ public class HeroAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.TryGetComponent<IHittable>(out IHittable hittable))
         {
-            Destroy(other.gameObject);
-            Debug.Log(_heroScore);
-            FindObjectOfType<GameManager>().HeroScore(_heroScore);
+            hittable.Hit(gameObject);
         }
     }
-
-    
 }
