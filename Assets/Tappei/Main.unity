@@ -328,6 +328,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!4 &89689405
@@ -378,6 +382,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!4 &328199130
@@ -758,6 +766,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!1001 &1177048486
@@ -850,6 +862,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!4 &1181256637
@@ -900,6 +916,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!4 &1366058769
@@ -1144,6 +1164,10 @@ MonoBehaviour:
   - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   - {fileID: 1495442713041899092, guid: 04df28647892a4843b24fa418bf6e83e, type: 3}
   - {fileID: 5606754091171860605, guid: b79c8c35a9667dd4d87d0a313b11d8b6, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
+  - {fileID: 8127043838753032684, guid: 3df509ff38e4a6046836d9e20eb0a69a, type: 3}
   spawnNum: 1
   spawnCooldown: 3
 --- !u!4 &2016373349
@@ -1567,7 +1591,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387994555597224783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.15, y: -0.36, z: 0}
+  m_LocalPosition: {x: 41.4, y: -0.36, z: 18}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1615,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4387994555597224784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,7 +2035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8935019119887274226}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.25, z: 0}
+  m_LocalPosition: {x: -40.9, y: 2.25, z: -24.9}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2092,7 +2116,7 @@ GameObject:
   - component: {fileID: 8592579317985457716}
   m_Layer: 0
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2151,9 +2175,9 @@ BoxCollider:
   m_GameObject: {fileID: 8592579318280845354}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 16.09, y: 2.01, z: 1.99}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &8592579318280845353
 MeshRenderer:
@@ -2212,7 +2236,7 @@ GameObject:
   - component: {fileID: 8592579318280845359}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

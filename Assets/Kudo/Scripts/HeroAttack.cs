@@ -20,8 +20,10 @@ public class HeroAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.TryGetComponent<IHittable>(out IHittable hittable))
         {
+            Debug.Log("Hit");
             hittable.Hit(gameObject);
         }
     }

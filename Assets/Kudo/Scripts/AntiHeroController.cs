@@ -60,6 +60,8 @@ public class AntiHeroController : MonoBehaviour
 
     IEnumerator StunCor()
     {
+        _rb.velocity = Vector3.zero;
+        _rb.angularDrag = 0;
         _stop = true;
         yield return new WaitForSeconds(stunTime);
         _stop = false;

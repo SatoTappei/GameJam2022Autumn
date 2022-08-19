@@ -28,6 +28,7 @@ public class SlimeAttack : MonoBehaviour, IHittable
     {
         if(go.tag == "Hero")
         {
+            Debug.Log("Stun");
             _slimeMove.Stun();
         }
     }
