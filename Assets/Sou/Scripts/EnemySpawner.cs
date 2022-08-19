@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject enemyPrefab;
+    //[SerializeField] GameObject player;
+    [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] int spawnNum = 1;
-    [SerializeField] float spawnRadius = 5f;
+    //[SerializeField] float spawnRadius = 5f;
     [SerializeField] float spawnCooldown;
 
     // Start is called before the first frame update
@@ -26,10 +26,11 @@ public class EnemySpawner : MonoBehaviour
         {
             for(var i = 0; i < spawnNum; i++)
             {
-                var distanceVector = new Vector3(Random.Range(spawnRadius - 1, spawnRadius), 0);
-                var spawnPositionFromPlayer = Quaternion.Euler(0, Random.Range(0, 360f), 0) * distanceVector;
-                var spawnPosition = player.transform.position + spawnPositionFromPlayer;
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                //var distanceVector = new Vector3(Random.Range(spawnRadius - 1, spawnRadius), 0);
+                //var spawnPositionFromPlayer = Quaternion.Euler(0, Random.Range(0, 360f), 0) * distanceVector;
+                //var spawnPosition = player.transform.position + spawnPositionFromPlayer;
+                int r = Random.Range(0, enemyPrefabs.Length);
+                Instantiate(enemyPrefabs[r], new Vector3(transform.position.x, 2.25f, transform.position.z), Quaternion.identity);
             }
             yield return new WaitForSeconds(spawnCooldown);
         }
