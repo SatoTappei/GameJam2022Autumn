@@ -15,11 +15,14 @@ public class AntiHeroController : MonoBehaviour
     [SerializeField] bool isHero;
     ///// <summary>スライムの生成用のオブジェクト</summary>
     //[SerializeField] GameObject _slimeSpown;
-   
+    [SerializeField] private float stunTime = 2f;
+
 
     //public bool IsAttack => isAttack;
     public float walkSpeed => _walkSpeed;
     public bool IsHero => isHero;
+
+    private bool _stop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,8 @@ public class AntiHeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (_stop) return;
+
         float x = Input.GetAxisRaw(IsHero ? "Horizontal1P" : "Horizontal2P");
         float z = Input.GetAxisRaw(IsHero ? "Vertical1P" : "Vertical2P");
 
@@ -47,5 +51,17 @@ public class AntiHeroController : MonoBehaviour
         //{
         //    Instantiate(_slimeSpown,transform.position,Quaternion.identity);
         //}
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(StunCor());
+    }
+
+    IEnumerator StunCor()
+    {
+        _stop = true;
+        yield return new WaitForSeconds(stunTime);
+        _stop = false;
     }
 }
