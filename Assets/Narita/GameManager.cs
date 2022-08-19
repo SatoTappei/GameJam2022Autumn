@@ -136,14 +136,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         }
         victorycanvas.SetActive(true);
     }
-    public void TitleSceneloader()
+    public void Sceneloader(string name)
     {
-       SceneManager.LoadScene("Title");
+       fade.SceneChange(name);
      }
-    public void GameSceneloader()
-    {
-        SceneManager.LoadScene("Narita");//å„ÅXïœçX
-    }
     public void Count()
     {
         count -= Time.deltaTime;
