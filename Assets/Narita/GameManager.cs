@@ -119,14 +119,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
     public void HeroScore(int score)
     {
+        if (judge) return;
+
         heroscore += score;
     }
     public void AntiHeroScore(int score)
     {
+        if (judge) return;
+
         antiheroscore += score;
     }
     public void Judge()
     {
+        if (judge) return;
+
         slimescoretext.text = lastantiheroscore.ToString();
         bravescoretext.text = lastheroscore.ToString();
         if (heroscore > antiheroscore)
