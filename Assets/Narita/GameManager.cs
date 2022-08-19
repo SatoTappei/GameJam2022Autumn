@@ -15,6 +15,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private int lastheroscore = 0;
     private int lastantiheroscore = 0;
     [SerializeField]
+    string scenename = null;
+    [SerializeField]
     TextMeshProUGUI timer = null;
     [SerializeField]
     TextMeshProUGUI heroscoretext = null;
@@ -61,7 +63,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         heroscore = 0;
         antiheroscore = 0;
         minute = 0;
-        seconds = 2;
+        seconds = 60;
         count = 3.5f;
         judge = false;
         start = false;
@@ -105,7 +107,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 antiheroscore = 99999;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Narita")
+        else if (SceneManager.GetActiveScene().name == scenename)
         {
             countcanvas.SetActive(true);
             victorycanvas.SetActive(false);
