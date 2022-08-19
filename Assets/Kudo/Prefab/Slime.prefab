@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: 3480925686033392246}
   - component: {fileID: 3480925686033392247}
   - component: {fileID: 3480925686033392243}
+  - component: {fileID: 6757385677118015578}
+  - component: {fileID: 4987047252124044667}
   - component: {fileID: 3480925686033392245}
   m_Layer: 0
   m_Name: Slime
@@ -289,6 +291,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6757385677118015578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363938175661635237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c11afc1d68166a44ab82bf105d3d9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slimeSplit: {fileID: 4987047252124044667}
+--- !u!114 &4987047252124044667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363938175661635237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dffff007911fb5469b788b8af2cc70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _splitMaxCount: 4
+  _splitPrefab: {fileID: 7156379991654383871, guid: 6e89425ff04968444ad404d89887dff2, type: 3}
 --- !u!114 &3480925686033392245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +332,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkSpeed: 10
   isHero: 0
-  _slimeSpown: {fileID: 0}
 --- !u!1 &4723813823242117898
 GameObject:
   m_ObjectHideFlags: 0

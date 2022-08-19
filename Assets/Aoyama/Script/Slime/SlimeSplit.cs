@@ -14,12 +14,13 @@ public class SlimeSplit : MonoBehaviour
     public void Split()
     {
         _count++;
+        Debug.Log(_count);
 
         if( _count >= _splitMaxCount )
         {
             _count = 0;
 
-            Vector3 pos = new Vector3(_splitPrefab.transform.position.x + 0.2f, _splitPrefab.transform.position.y, _splitPrefab.transform.position.z); 
+            Vector3 pos = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z); 
             Instantiate(_splitPrefab, pos, Quaternion.identity);
         }
     }

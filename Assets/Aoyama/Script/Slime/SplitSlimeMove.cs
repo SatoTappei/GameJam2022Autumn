@@ -30,11 +30,17 @@ public class SplitSlimeMove : MonoBehaviour
     private void Move()
     {
         _rb.velocity = _enemyManager.SearchNearEnemyDirection(transform) * _speed;
+
+        Vector3 vel = _rb.velocity;
+        if (vel != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(_rb.velocity);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<IHittable>(out IHittable hittable))
+        if (collision.gameObject.TryGetComponent(out IHittable hittable))
         {
             hittable.Hit(gameObject);
         }
