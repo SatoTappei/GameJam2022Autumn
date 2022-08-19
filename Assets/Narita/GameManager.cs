@@ -89,10 +89,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 {
                     lastheroscore = heroscore;
                     lastantiheroscore = antiheroscore;
+                    Judge();
                     judge = true;
                     //start = false;
                     scorecanvas.SetActive(false);
-                    Judge();
+                    
                 }
                 else
                 {
