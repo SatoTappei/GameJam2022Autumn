@@ -11,7 +11,7 @@ public class HeroController : MonoBehaviour
     /// <summary>勇者の歩くスピード</summary>
     [Header("勇者の歩く速度"),SerializeField] float _walkSpeed;
     /// <summary>勇者かどうかの判定</summary>
-    [Header("勇者かどうか"),Tooltip("勇者だったら矢印キーでの操作　じゃなっかったらWSADでの操作")]
+    [Header("勇者かどうか"),Tooltip("勇者だったら矢印キーでの操作、勇者じゃなっかったらWSADでの操作")]
     [SerializeField] bool isHero;
     
     

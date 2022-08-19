@@ -13,6 +13,7 @@ public class AntiHeroController : MonoBehaviour
     /// <summary>勇者かどうかの判定</summary>
     [Header("勇者かどうか"), Tooltip("勇者だったら矢印キーでの操作　じゃなっかったらWSADでの操作")]
     [SerializeField] bool isHero;
+    /// <summary>スライムの生成用のオブジェクト</summary>
     [SerializeField] GameObject _slimeSpown;
    
 
