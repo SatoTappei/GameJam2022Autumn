@@ -34,6 +34,8 @@ public class EnemyManager : SingletonMonoBehaviour<EnemyManager>
             }
         }
 
+        if (index >= _enemys.Length) return Vector3.zero;
+
         return (_enemys[index].transform.position - tr.position).normalized;
     }
 }
