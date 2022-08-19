@@ -28,7 +28,7 @@ public class VillagerHit : MonoBehaviour, IHittable
         if(hitObject.tag == _slimeTag)
         {
             Debug.Log("player1‚É“–‚½‚Á‚½");
-            Destroy(hitObject);
+            Destroy(gameObject);
             _gameManager.AntiHeroScore(_score);
         }
     }

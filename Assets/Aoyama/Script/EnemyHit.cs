@@ -32,7 +32,7 @@ public class EnemyHit : MonoBehaviour, IHittable
         }
         else if (hitObject.tag == _heroTag)
         {
-            Destroy(hitObject);
+            Destroy(gameObject);
             _gameManager.HeroScore(_score);
         }
     }
