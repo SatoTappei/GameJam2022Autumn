@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slime
   - Hero
+  - Enemy
   layers:
   - Default
   - TransparentFX
