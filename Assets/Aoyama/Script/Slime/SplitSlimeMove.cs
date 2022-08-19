@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplitSlimeMove : MonoBehaviour
+public class SplitSlimeMove : MonoBehaviour, IHittable
 {
     [SerializeField]
     private float _speed = 3;
@@ -43,6 +43,14 @@ public class SplitSlimeMove : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out IHittable hittable))
         {
             hittable.Hit(gameObject);
+        }
+    }
+
+    public void Hit(GameObject hitObject)
+    {
+        if (hitObject.tag == "Hero")
+        {
+            Destroy(gameObject);
         }
     }
 }
