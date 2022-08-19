@@ -37,6 +37,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     Texture lose = null;
     [SerializeField]
+    Texture draw = null;
+    [SerializeField]
     GameObject victorycanvas = null;
     [SerializeField]
     GameObject scorecanvas = null;
@@ -56,14 +58,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         //nullチェック
         if (!timer || !heroscoretext || !antiheroscoretext || !slimescoretext 
             || !victorycanvas || !scorecanvas || !countcanvas || !counttext 
-            || !slimeWinOrLose || !braveWinOrLose || !win || !lose)
+            || !slimeWinOrLose || !braveWinOrLose || !win || !lose || !draw)
         {
             start = false;
         }
         heroscore = 0;
         antiheroscore = 0;
         minute = 0;
-        seconds = 60;
+        seconds = 30;
         count = 3.5f;
         judge = false;
         start = false;
@@ -129,20 +131,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         bravescoretext.text = lastheroscore.ToString();
         if (heroscore > antiheroscore)
         {
-            slimeWinOrLose.texture = win;
-            braveWinOrLose.texture = lose;
+            slimeWinOrLose.texture = lose;
+            braveWinOrLose.texture = win;
+           
         }
         else if (heroscore < antiheroscore)
         {
-            slimeWinOrLose.texture = lose;
-            braveWinOrLose.texture = win;
+            slimeWinOrLose.texture = win;
+            braveWinOrLose.texture = lose;
         }
         else
         {
-            //slimeWinOrLose.texture = draw;
-            //braveWinOrLose.texture = draw;
-            slimeWinOrLose.texture = win;
-            braveWinOrLose.texture = lose;
+            slimeWinOrLose.texture = draw;
+            braveWinOrLose.texture = draw;
         }
         victorycanvas.SetActive(true);
     }
