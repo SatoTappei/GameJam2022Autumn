@@ -1112,6 +1112,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeStory
       objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1978226
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1978226
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1978226
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 744260809, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 132.15843
+      objectReference: {fileID: 0}
     - target: {fileID: 744260810, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1119,6 +1155,34 @@ PrefabInstance:
     - target: {fileID: 781019372, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798040, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798040, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.79898
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798040, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1414
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798041, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798041, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798041, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703798041, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1977426449, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1246,6 +1310,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+--- !u!1 &1609240965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1703798039, guid: d67c8c568066d1f4d9cc61920bcf85ab, type: 3}
+  m_PrefabInstance: {fileID: 1609240964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1609240966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609240965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1738664927
 GameObject:
   m_ObjectHideFlags: 0
